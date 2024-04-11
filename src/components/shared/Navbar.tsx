@@ -31,7 +31,7 @@ export default function Navbar() {
             <div className="logo transition-all duration-300" style={{
                width: barState ? size() : 60
             }}>
-               <div className="logoImage1 flex justify-center items-center">
+               <div className="logoImage1 flex justify-center items-center py-[17px]">
                   <Link href={'/'} className="relative">
                      <Image src={logo} alt="website logo" className="relative w-10" />
                   </Link>
