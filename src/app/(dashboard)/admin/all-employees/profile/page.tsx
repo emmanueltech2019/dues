@@ -4,7 +4,7 @@ import Image from 'next/image'
 import user from '../img/user.jpg';
 import Profile from './components/Profile';
 import Project from './components/Project';
-import Assets from './components/Assets';
+
 import Bank from './components/Bank';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -26,8 +26,8 @@ function page() {
                         <Image src={user} alt="alt" className='w-[112px] rounded-full' />
                     </div>
                 </div>
-                <div className='sm:flex sm:gap-3'>
-                    <div className="profile text-center items-center pb-3 border-b-2 sm:border-b-0 border-dashed sm:border-r-2 text-[.8rem] sm:pe-3 sm:h-44">
+                <div className='sm:flex sm:gap-3 w-full'>
+                <div className="profile text-center items-center pb-3 border-b-2 sm:border-b-0 border-dashed sm:border-r-2 text-[.8rem] sm:pe-3 sm:h-44 lg:w-[40%] lg:pe-6">
                         <div className='smm:text-left'>
                             <h1 className='text-[#bbc4cc] text-[.8rem]'>John Doe</h1>
                             <p className='text-[#8e8c8a] text-[.7rem]'>UI/UX Design Team</p>
@@ -42,7 +42,7 @@ function page() {
                             <button className=' bg-gradient-color text-white p-2 px-4 rounded-md text-[.84rem]'>Send Message</button>
                         </div>
                     </div>
-                    <div className="details py-4 flex flex-col gap-2">
+                    <div className="details py-4 flex flex-col gap-2 lg:w-[40%]">
                         <div className="phone flex justify-start gap-8">
                             <h1 className='text-[#bbc4cc] flex-1'>Phone:</h1>
                             <Link href={'tel:9876543210'} className='flex-[2] text-white underline'>9876543210</Link>
@@ -58,9 +58,7 @@ function page() {
                         <div className="address flex justify-start gap-8">
                             <h1 className='text-[#bbc4cc] flex-1'>Address:</h1>
                             <div className='text-[#828c8a] text-left flex-[2]'>
-                                <p>1861 Bayonne Ave,</p>
-                                <p>Manchester Township, Nj,</p>
-                                <p>08759</p>
+                            <p>1861 Bayonne Ave, Manchester Township, Nj, 08759</p>
                             </div>
                         </div>
                         <div className="gender flex justify-start gap-8">
@@ -89,13 +87,9 @@ function page() {
                 <div className='flex-[2] whitespace-nowrap w-52 me-11 border-b-2 border-transparent hover:border-[#ff9b44] sm:hover:text-white transition-all' onClick={() => setActiveTab('Bank')}>
                     <h1 className='ps-4'>Bank & Statutory <span className='text-[#f62d51] font-light'>(Admin Only)</span></h1>
                 </div>
-                <div className='flex-1 w-38 border-b-2 border-transparent hover:border-[#ff9b44] sm:hover:text-white transition-all' onClick={() => setActiveTab('Assets')}>
-                    <h1 className='ps-4'>Assets</h1>
-                </div>
             </div>
             {ActiveTab === 'Profile' && <Profile />}
             {ActiveTab === 'Projects' && <Project />}
-            {ActiveTab === 'Assets' && <Assets />}
             {ActiveTab === 'Bank' && <Bank />}
         </div>
     )
