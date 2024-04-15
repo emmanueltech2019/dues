@@ -13,6 +13,7 @@ const config: Config = {
       },
       screens: {
         "smm": '575px',
+        "vsm": '520px'
       },
     },
   },

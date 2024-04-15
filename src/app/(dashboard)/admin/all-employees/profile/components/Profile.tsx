@@ -123,7 +123,7 @@ function Profile() {
                         <h1 className='text-[1.3rem] mb-3'>Family Information</h1>
                     </div>
                     <div className="whitespace-nowrap overflow-x-scroll">
-                        <table className='w-full md:w-[100px'>
+                        <table className='w-full'>
                             <thead>
                                 <tr className='bg-[#34444c] border-b border-[#2a3733]'>
                                     <td className='p-3'><h1>Name</h1></td>

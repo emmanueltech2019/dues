@@ -16,20 +16,14 @@ function page() {
                 <h1 className='text-[1.2rem] text-[#bbc4cc]'>Employee</h1>
             </div>
             <nav className='flex gap-2 justify-between items-center'>
-                <div className="grid-view bg-[#16191c] p-2 text-[#bbc4cc] rounded  h-9">
-                    <FontAwesomeIcon icon={faTableCells} className='h-5 w-5'/>
-                </div>
-                <div className="list-view bg-[#16191c] p-2 text-[#bbc4cc] rounded h-9">
-                    <FontAwesomeIcon icon={faBars} className='h-5 w-5'/>
-                </div>
-                <div className="add-employee flex items-center px-3 py-1 gap-1 rounded-full bg-[#FF9B44] text-[1rem] text-[#ffffff]">
+                <div className="add-employee flex items-center px-3 py-1 gap-1 rounded-full bg-[#FF9B44] text-[1rem] text-[#ffffff] cursor-pointer">
                     <FontAwesomeIcon icon={faPlus}/>
                     <h1>Add Employee</h1>
                 </div>
             </nav>
         </header>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-3 overflowx-hidden py-3'>
+        <div className='grid vsm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-4 gap-y-3 overflowx-hidden py-3'>
             <div className="employee-id bg-[#16191c] p-3 rounded w-full ">
                 <input type="text" placeholder="Employee ID" className=' bg-transparent w-full '/>
             </div>
@@ -46,7 +40,7 @@ function page() {
                     <option value="ios developer">Ios Developer</option>
                 </select>
             </div>
-           <div className="search p-3 rounded bg-[#55ce63] text-center text-white text-[1rem]">
+           <div className="search p-3 rounded bg-[#55ce63] text-center text-white text-[1rem] cursor-pointer">
            <button>SEARCH</button>
            </div>
         </div>
@@ -56,7 +50,7 @@ function page() {
                 employees.map(({name, skill, userImage, href},index) => (
                     <div key={name + index} className='bg-[#16191c] py-2 px-3'>
                         <div className='flex justify-end'>
-                        <FontAwesomeIcon icon={faEllipsisV} className="h-5 text-[#777777]"/>
+                        <FontAwesomeIcon icon={faEllipsisV} className="h-5 text-[#777777] cursor-pointer"/>
                         </div>
                         <Link href={href} className='text-center flex flex-col justify-center items-center'>
                             <Image src={userImage} alt="alt" className='w-[80px] rounded-full mt-3' />
