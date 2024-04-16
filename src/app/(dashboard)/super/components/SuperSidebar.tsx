@@ -8,15 +8,15 @@ import Link from "next/link"
 const links = [
    {
       title: 'Dashboard',
-      path: '/admin'
+      path: '/super'
    },
    {
       title: 'All Employees',
       path: '/admin/all-employees'
    },
    {
-      title: 'Payments',
-      path: '/admin/payment'
+      title: 'settings',
+      path: '/super/settings'
    }
 ]
 
