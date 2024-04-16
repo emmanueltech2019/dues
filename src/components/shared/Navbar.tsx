@@ -8,18 +8,16 @@ import { faBars, faEllipsisV, faMagnifyingGlass, faChevronDown } from "@fortawes
 import { faBell, faComment } from "@fortawesome/free-regular-svg-icons"
 import logo from './images/logo.svg'
 import img1 from './images/img1.jpg'
-import { BarStateContext } from "./toggleBarContext"
 
 
+type NavbarType ={
+   barState: boolean,
+   setBar: () => void
+}
 
-
-export default function Navbar() {
+export default function Navbar({barState, setBar}:NavbarType) {
    const [searchInput, setSearchInput] = useState('')
    const [profileToggle, setProfileToggle] = useState(false)
-
-   const { barState, setBar } = useContext(BarStateContext)
-   let size = () => ((window.innerWidth) >= 1024 ? 229 : 60);
-
    return (
       <div className="flex justify-between items-center fixed top-0 left-0 w-full bg-[#263238] border-[0.5px] border-[#263238]">
          <div className="mobile-togglebar lg:hidden px-5">
@@ -28,9 +26,7 @@ export default function Navbar() {
             </button>
          </div>
          <div className="col flex items-center py-[10px] lg:py-0 px-[5px]">
-            <div className="logo transition-all duration-300" style={{
-               width: barState ? size() : 60
-            }}>
+            <div className={"logo transition-all duration-300 " + (barState ? "lg:w-[229px]" : "lg:w-[60px]")}>
                <div className="logoImage1 flex justify-center items-center py-[17px]">
                   <Link href={'/'} className="relative">
                      <Image src={logo} alt="website logo" className="relative w-10" />
@@ -57,25 +53,6 @@ export default function Navbar() {
                   </button>
                </div>
             </div>
-            {/* <div className="language-settings px-[15px] hidden md:block relative h-full">
-               <button className="flex items-center" onClick={e => { lngToggle ? setLngToggle(false) : setLngToggle(true) }} onBlur={() => {setLngToggle(false)}}>
-                  <div className="language-img pr-[5px]">
-                     <Image src={English} alt="lng" className="w-5 max-h-5" />
-                  </div>
-                  <div className="lng text-[15px] text-[#bbc4cc] hidden lg:flex items-center">English <FontAwesomeIcon icon={faChevronDown} className="w-[15px] pl-[1px] transition-all duration-300" style={{
-                     scale: lngToggle ? -1 : 1
-                  }} /></div>
-               </button>
-               <div className="selection py-2 absolute top-[50px] left-0 bg-[#34444c] shadow-sm shadow-[#34444c]" style={{ display: lngToggle ? 'block' : 'none' }}>
-                  <ul>
-                     {languageSets.map(({ lng, flag }, index) => (
-                        <li key={lng + index}>
-                           <button className="py-[5px] px-[15px] flex gap-1"><Image src={flag} alt="lng" className="w-5 max-h-5" /> <span className="pr-[15px] text-[#bbc4cc] text-sm">{lng}</span></button>
-                        </li>
-                     ))}
-                  </ul>
-               </div>
-            </div> */}
             <div className="notification-bar px-[15px] hidden md:block">
                <div className="relative">
                   <FontAwesomeIcon icon={faBell} className="w-5 text-[#bbc4cc] font-bold" />

@@ -16,10 +16,10 @@ function page() {
                 <h1 className='text-[1.2rem] text-[#bbc4cc]'>Employee</h1>
             </div>
             <nav className='flex gap-2 justify-between items-center'>
-                <div className="add-employee flex items-center px-3 py-1 gap-1 rounded-full bg-[#FF9B44] text-[1rem] text-[#ffffff] cursor-pointer">
+                <button className="add-employee flex items-center px-3 py-1 gap-1 rounded-full bg-[#FF9B44] text-[1rem] text-[#ffffff] cursor-pointer">
                     <FontAwesomeIcon icon={faPlus}/>
                     <h1>Add Employee</h1>
-                </div>
+                </button>
             </nav>
         </header>
 

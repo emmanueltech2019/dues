@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className='text-[15px] text-[#1f1f1f]' style={circularStd.style}>{children}</body>
+      <body className='text-[15px] text-[#1f1f1f]' style={circularStd.style}>
+        {children}
+      </body>
     </html>
   );
 }
