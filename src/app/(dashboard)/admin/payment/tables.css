@@ -1,0 +1,17 @@
+
+table, .tables{
+   width: 100%;
+   text-align: left;
+   min-width: 675px;
+   border-spacing: 1px;
+}
+
+th, td, .table-data{
+   padding-block: 16px;
+   padding-right: 30px;
+   padding-left: 12px;
+   background: #34444c;
+}
+td{
+   font-weight: 300;
+}
