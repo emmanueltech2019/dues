@@ -1,5 +1,4 @@
 import React from 'react'
-import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint'
 import Image from 'next/image'
@@ -8,7 +7,7 @@ import duesImg from './img/logo.png'
 
 function Payslip() {
   return (
-    <div id='payslip'>
+    <div id='payslip' className='p-[30px]'>
         <div className='p-4'>
             <header className='flex justify-between'>
                 <div>

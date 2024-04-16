@@ -8,24 +8,28 @@ import Link from "next/link"
 const links = [
    {
       title: 'Dashboard',
-      path: '/admin'
+      path: '/staff#dashboard'
    },
    {
-      title: 'All Employees',
-      path: '/admin/all-employees'
+      title: 'profile',
+      path: '/staff/profile'
    },
    {
-      title: 'Payments',
-      path: '/admin/payment'
+      title: 'Payment History',
+      path: '/staff/employeeSalary'
+   },
+   {
+      title: 'Payslip',
+      path: '/staff/employeeSalary/payslip'
    }
 ]
 
-type SuperSidebarType = {
+type StaffSidebarType = {
    barState: boolean
    setBar: () => void
 }
 
-export default function SuperSidebar({ barState, setBar }: SuperSidebarType) {
+export default function StaffSidebar({ barState, setBar }: StaffSidebarType) {
    return (
       <>
          <div className="hidden lg:block desktop-screen h-screen bg-[#34444C] fixed top-16 left-0 pt-[10px] transition-all duration-300 overflow-hidden" style={{

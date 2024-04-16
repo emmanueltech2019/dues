@@ -5,14 +5,13 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons/faEllipsisV'
 import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import './style.css'
 import Link from 'next/link'
 import { salaryTable } from './components/tableModObj'
 
 function EmployeeSalary() {
 
   return (
-    <div id='employee-salary'>
+    <div id='employee-salary' className='p-[30px]'>
        <div className='p-4'>
             <header className='flex items-center justify-between py-5'>
                 <h3 className='text-[#bbc4cc] text-[1.2rem]'>Employee Salary</h3>

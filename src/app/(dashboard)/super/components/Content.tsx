@@ -18,7 +18,7 @@ export default function Content({ children }: contentProps) {
       <>
          <div>
             <header className="navbar relative pb-16 z-50">
-               <Navbar barState={barState} setBar={setBar} />
+               <Navbar barState={barState} setBar={setBar} user='Super Admin' />
             </header>
             <section className="col">
                <main className="sidebar relative z-5  0 overflow-hidden">

@@ -12,10 +12,11 @@ import img1 from './images/img1.jpg'
 
 type NavbarType ={
    barState: boolean,
-   setBar: () => void
+   setBar: () => void,
+   user: string
 }
 
-export default function Navbar({barState, setBar}:NavbarType) {
+export default function Navbar({barState, setBar, user}:NavbarType) {
    const [searchInput, setSearchInput] = useState('')
    const [profileToggle, setProfileToggle] = useState(false)
    return (
@@ -73,7 +74,7 @@ export default function Navbar({barState, setBar}:NavbarType) {
                      </div>
                      <span className="status-online absolute border-2 border-white h-[10px] w-[10px] rounded-full inline-block bg-[#55ce63] right-0 bottom-0"></span>
                   </div>
-                  <h2 className="text-[#bbc4cc] text-sm font-medium hidden lg:block">Admin</h2>
+                  <h2 className="text-[#bbc4cc] text-sm font-medium hidden lg:block">{user}</h2>
                   <FontAwesomeIcon icon={faChevronDown} className="w-4 text-[#fff] text-xs font-medium hidden lg:block transition-all duration-300" style={{
                      scale: profileToggle ? -1 : 1
                   }} />

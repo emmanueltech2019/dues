@@ -1,5 +1,4 @@
 import React from 'react'
-import './style.css'
 import Image from 'next/image'
 import userimg from './img/user.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,7 +9,7 @@ import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 function EmployeeDashboard() {
   return (
-    <div id='dashboard'>
+    <div id='dashboard' className='p-[30px]'>
         <header className='bg-[#16191c] p-2 pb-4'>
             <div className='flex gap-4'>
                 <div>
