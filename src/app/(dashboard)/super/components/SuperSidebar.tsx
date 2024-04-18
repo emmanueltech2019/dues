@@ -15,8 +15,8 @@ const links = [
       path: '/admin/all-employees'
    },
    {
-      title: 'settings',
-      path: '/super/settings'
+      title: 'Company',
+      path: '/super/company'
    }
 ]
 

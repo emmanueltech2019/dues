@@ -1,7 +1,8 @@
 "use client";
 import Navbar from '@/components/shared/Navbar'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import StaffSidebar from './StaffSidebar'
+import { useRouter } from 'next/navigation';
 
 type contentProps = {
    children: React.ReactNode
@@ -9,11 +10,18 @@ type contentProps = {
 
 export default function Content({ children }: contentProps) {
 
+   const redirect = useRouter()
    const [barState, setBarState] = useState(true)
    const setBar = () => { setBarState(prev => !prev) }
 
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
    const toggleAddEmployeeModal = () => {setAddEmployeeModal(prev => !prev)}
+
+   useEffect(() => {
+      if(!localStorage.getItem('userToken')){
+         redirect.push('/staff/auth/login')
+      }
+   },[])
    return (
       <>
          <div>

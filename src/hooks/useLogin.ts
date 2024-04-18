@@ -1,19 +1,27 @@
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 type loginType = {
-  Email: string,
-  Password: string
+  email: string,
+  password: string
 }
 // 
-export default function useLogin(initialState:loginType) {
+
+export default function useLogin(initialState: loginType, url: string, redirect: string) {
   const login = useRouter()
   const handleLogin = () => {
-    console.dir(initialState)
-    for(let value of Object.values(initialState)){
-      if(value){
-        login.push('/admin')
-      }
+    if (initialState.email && initialState.password) {
+      let data;
+      axios.post(url, initialState).then(res => {
+        data = res.data;
+        localStorage.setItem('userToken', data.token)
+        login.push(`/${redirect}`)
+      }).catch((err) => {
+        console.log(err)
+      })
     }
+
+
   }
   return handleLogin
 }
