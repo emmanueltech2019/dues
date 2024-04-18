@@ -30,7 +30,7 @@ export default function Navbar({barState, setBar, user}:NavbarType) {
             <div className={"logo transition-all duration-300 " + (barState ? "lg:w-[229px]" : "lg:w-[60px]")}>
                <div className="logoImage1 flex justify-center items-center py-[10px]">
                   <Link href={'/'} className="relative">
-                     <Image src={logo} alt="website logo" className={"relative "+ (barState ? "w-16" :"w-12")} />
+                     <Image src={logo} alt="website logo" className={"relative transition duration-300 "+ (barState ? "w-16" :"w-12")} />
                   </Link>
                </div>
             </div>
@@ -46,14 +46,14 @@ export default function Navbar({barState, setBar, user}:NavbarType) {
             </div>
          </div>
          <div className="col items-center flex">
-            <div className="search-bar hidden lg:flex py-[17px]"> 
+            {/* <div className="search-bar hidden lg:flex py-[17px]"> 
                <div className="relative">
                   <input type="text" value={searchInput} onChange={e => setSearchInput(e.target.value)} name="search" placeholder="Search Here" className="bg-lightColor border border-[rgba(255,255,255, 0.15)] text-white text-sm h-10 pl-[15px] pr-[50px] py-[10px] rounded-full outline-0 max-w-36 xl:max-w-56" />
                   <button title="btn" className="absolute top-0 right-0 w-12 h-10 flex items-center justify-center">
                      <FontAwesomeIcon icon={faMagnifyingGlass} className="w-4 text-white" />
                   </button>
                </div>
-            </div>
+            </div> */}
             <div className="notification-bar px-[15px] hidden md:block">
                <div className="relative">
                   <FontAwesomeIcon icon={faBell} className="w-5 text-[#bbc4cc] font-bold" />

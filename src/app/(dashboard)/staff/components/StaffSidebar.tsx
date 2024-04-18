@@ -1,27 +1,26 @@
 "use client";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronDown, faThermometer } from "@fortawesome/free-solid-svg-icons"
-import { faGaugeHigh } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
+import GridViewIcon from '@mui/icons-material/GridView';
+import PortraitIcon from '@mui/icons-material/Portrait';
+import ViewListIcon from '@mui/icons-material/ViewList';
 
 
 const links = [
    {
       title: 'Dashboard',
-      path: '/staff#dashboard'
+      path: '/staff#dashboard',
+      icon: <GridViewIcon className="text-inherit" />
    },
    {
       title: 'profile',
-      path: '/staff/profile'
+      path: '/staff/profile',
+      icon: <PortraitIcon className="text-inherit" />
    },
    {
       title: 'Payment History',
-      path: '/staff/employeeSalary'
+      path: '/staff/employeeSalary',
+      icon: <ViewListIcon className="text-inherit" />
    },
-   {
-      title: 'Payslip',
-      path: '/staff/employeeSalary/payslip'
-   }
 ]
 
 type StaffSidebarType = {
@@ -38,8 +37,8 @@ export default function StaffSidebar({ barState, setBar }: StaffSidebarType) {
             <h1 className="px-[15px] py-[5px] text-sm text-[#bbc4cc] font-extrabold" style={{ display: barState ? 'block' : 'none' }}>Main</h1>
             <div className="dashboard-link">
                <div className="dashboard-list">
-                  {links.map(({ title, path }, index) => (<div key={title + index} className="py-[9px] px-[15px] text-[#bbc4cc] flex items-center"style={{ justifyContent: barState ? 'start' : 'center' }}>
-                     <FontAwesomeIcon icon={faGaugeHigh} className="text-xl" />
+                  {links.map(({ title, path, icon }, index) => (<div key={title + index} className="py-[9px] px-[15px] text-[#bbc4cc] flex items-center" style={{ justifyContent: barState ? 'start' : 'center' }}>
+                     <button className="text-xl cursor-pointer" onClick={setBar}>{icon}</button>
                      <Link href={path} className="text-sm  pl-[15px]" style={{ display: barState ? 'inline' : 'none' }}>{title}</Link>
                   </div>))}
                </div>
@@ -54,8 +53,10 @@ export default function StaffSidebar({ barState, setBar }: StaffSidebarType) {
             <h1 className="px-[15px] py-[5px] text-sm text-[#bbc4cc] font-extrabold">Main</h1>
             <div className="dashboard-link">
                <div className="dashboard-list">
-                  {links.map(({ title, path }, index) => (<div key={title + index} className="py-[9px] px-[15px] text-[#bbc4cc]">
-                     <FontAwesomeIcon icon={faGaugeHigh} className="text-base" />
+                  {links.map(({ title, path, icon }, index) => (<div key={title + index} className="py-[9px] px-[15px] text-[#bbc4cc]">
+                     <div className="text-base cursor-pointer">
+                        {icon}
+                     </div>
                      <Link href={path} className="text-sm pl-[15px]">{title}</Link>
                   </div>))}
                </div>
