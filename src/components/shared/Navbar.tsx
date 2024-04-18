@@ -28,9 +28,9 @@ export default function Navbar({barState, setBar, user}:NavbarType) {
          </div>
          <div className="col flex items-center py-[10px] lg:py-0 px-[5px]">
             <div className={"logo transition-all duration-300 " + (barState ? "lg:w-[229px]" : "lg:w-[60px]")}>
-               <div className="logoImage1 flex justify-center items-center py-[17px]">
+               <div className="logoImage1 flex justify-center items-center py-[10px]">
                   <Link href={'/'} className="relative">
-                     <Image src={logo} alt="website logo" className="relative w-10" />
+                     <Image src={logo} alt="website logo" className={"relative "+ (barState ? "w-16" :"w-12")} />
                   </Link>
                </div>
             </div>
@@ -41,9 +41,9 @@ export default function Navbar({barState, setBar, user}:NavbarType) {
                   <div className="w-5 h-[2px] bg-[#bbc4cc]"></div>
                </button>
             </div>
-            {/* <div className="logo-title px-5 py-[17px] hidden lg:block">
-               <h1 className="text-[#bbc4cc] text-lg font-medium whitespace-nowrap">Dues</h1>
-            </div> */}
+            <div className="company-title px-5 py-[17px] hidden lg:block">
+               <h1 className="text-[#bbc4cc] text-lg font-medium whitespace-nowrap">Company Title</h1>
+            </div>
          </div>
          <div className="col items-center flex">
             <div className="search-bar hidden lg:flex py-[17px]"> 
