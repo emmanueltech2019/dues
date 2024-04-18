@@ -7,14 +7,14 @@ type loginType = {
 }
 // 
 
-export default function useLogin(initialState: loginType, url: string, redirect: string) {
+export default function useLogin(initialState: loginType, url: string, redirect: string, token: string) {
   const login = useRouter()
   const handleLogin = () => {
     if (initialState.email && initialState.password) {
       let data;
       axios.post(url, initialState).then(res => {
         data = res.data;
-        localStorage.setItem('userToken', data.token)
+        localStorage.setItem(`${token}Token`, data.token)
         login.push(`/${redirect}`)
       }).catch((err) => {
         console.log(err)

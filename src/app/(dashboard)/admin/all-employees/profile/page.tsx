@@ -1,19 +1,12 @@
-"use client";
 import React from 'react'
 import Image from 'next/image'
 import user from '../img/user.jpg';
-import Profile from './components/Profile';
-import Project from './components/Project';
-
-import Bank from './components/Bank';
-import { useState } from 'react';
 import Link from 'next/link';
+import ActiveTab from './components/ActiveTab';
 
 
 
 function page() {
-    const [ActiveTab, setActiveTab] = useState("Profile")
-
     return (
         <div className='p-4'>
             <header className='pb-7'>
@@ -27,7 +20,7 @@ function page() {
                     </div>
                 </div>
                 <div className='sm:flex sm:gap-3 w-full'>
-                <div className="profile text-center items-center pb-3 border-b-2 sm:border-b-0 border-dashed sm:border-r-2 text-[.8rem] sm:pe-3 sm:h-44 lg:w-[40%] lg:pe-6">
+                    <div className="profile text-center items-center pb-3 border-b-2 sm:border-b-0 border-dashed sm:border-r-2 text-[.8rem] sm:pe-3 sm:h-44 lg:w-[40%] lg:pe-6">
                         <div className='smm:text-left'>
                             <h1 className='text-[#bbc4cc] text-[.8rem]'>John Doe</h1>
                             <p className='text-[#8e8c8a] text-[.7rem]'>UI/UX Design Team</p>
@@ -58,7 +51,7 @@ function page() {
                         <div className="address flex justify-start gap-8">
                             <h1 className='text-[#bbc4cc] flex-1'>Address:</h1>
                             <div className='text-[#828c8a] text-left flex-[2]'>
-                            <p>1861 Bayonne Ave, Manchester Township, Nj, 08759</p>
+                                <p>1861 Bayonne Ave, Manchester Township, Nj, 08759</p>
                             </div>
                         </div>
                         <div className="gender flex justify-start gap-8">
@@ -77,20 +70,7 @@ function page() {
 
             </div>
 
-            <div className='navigation gap-2 flex flex-wrap bg-white sm:bg-[#16191c] py-2 pe-4 rounded text-[.8rem] sm:text-[#828c8a]'>
-                <div className='flex-1 border-b-2 border-transparent hover:border-[#ff9b44] sm:hover:text-white transition-all' onClick={() => setActiveTab('Profile')}>
-                    <h1 className='ps-4'>Profile</h1>
-                </div>
-                <div className='flex-1 border-b-2 border-transparent hover:border-[#ff9b44] sm:hover:text-white transition-all' onClick={() => setActiveTab('Projects')}>
-                    <h1 className='ps-4'>Projects</h1>
-                </div>
-                <div className='flex-[2] whitespace-nowrap w-52 me-11 border-b-2 border-transparent hover:border-[#ff9b44] sm:hover:text-white transition-all' onClick={() => setActiveTab('Bank')}>
-                    <h1 className='ps-4'>Bank & Statutory <span className='text-[#f62d51] font-light'>(Admin Only)</span></h1>
-                </div>
-            </div>
-            {ActiveTab === 'Profile' && <Profile />}
-            {ActiveTab === 'Projects' && <Project />}
-            {ActiveTab === 'Bank' && <Bank />}
+            <ActiveTab />
         </div>
     )
 }
