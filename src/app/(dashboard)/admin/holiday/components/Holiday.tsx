@@ -68,17 +68,17 @@ function Holiday() {
                 <header className='flex justify-between items-center'>
                   <h1 className='text-[#bbc4cc] text-[18px] md:text-[26px]'>Add Holiday</h1>
                   <div className='border border-[#ff9b44] rounded-full h-9 px-3 pt-[7px] cursor-pointer' onClick={handleModPopUp}>
-                    <button><FontAwesomeIcon icon={faXmark} className='text-[#ff9b44]'/></button>
+                    <button title='btn'><FontAwesomeIcon icon={faXmark} className='text-[#ff9b44]'/></button>
                   </div>
                 </header>
 
                 <div>
-                  <p>Holiday Name</p>
-                  <input type="text" className='w-full'/>
+                  <label htmlFor='holiday-name'>Holiday Name</label>
+                  <input id="holiday-name" type="text" className='w-full'/>
                 </div>
                 <div>
-                  <p>Holiday Date</p>
-                  <input type="date" className='w-full'/>
+                  <label htmlFor='holiday-date'>Holiday Date</label>
+                  <input id="holiday-date" type="date" className='w-full'/>
                 </div>
                 <div className='text-center'>
                   <button type='submit' className='text-[#fff] bg-orange'>Submit</button>
