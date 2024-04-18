@@ -31,9 +31,9 @@ function page() {
                             <p className='text-[#8e8c8a] text-[.7rem]'>Date of John : 1st Jan 2013</p>
                         </div>
 
-                        <div className="button py-1 pt-3 smm:text-left">
-                            <button className=' bg-gradient-color text-white p-2 px-4 rounded-md text-[.84rem]'>Send Message</button>
-                        </div>
+                        {/* <div className="button py-1 pt-3 smm:text-left">
+                            <button className=' bg-gradient-color text-white p-2 px-4 rounded-md text-[.84rem]'>Edit profile</button>
+                        </div> */}
                     </div>
                     <div className="details py-4 flex flex-col gap-2 lg:w-[40%]">
                         <div className="phone flex justify-start gap-8">
