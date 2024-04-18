@@ -1,8 +1,5 @@
-"use client"
-import React, { useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons/faEllipsisV'
 import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'

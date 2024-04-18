@@ -11,7 +11,7 @@ type contentProps = {
 export default function Content({ children }: contentProps) {
 
    const redirect = useRouter()
-   const [barState, setBarState] = useState(false)
+   const [barState, setBarState] = useState(true)
    const setBar = () => { setBarState(prev => !prev) }
 
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)

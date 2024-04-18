@@ -2,7 +2,6 @@
 import Navbar from '@/components/shared/Navbar'
 import React, { useState } from 'react'
 import AdminSidebar from './AdminSidebar'
-import AddEmployeeModal from '@/components/mdoals/AddEmployeeModal';
 
 type contentProps = {
    children: React.ReactNode
@@ -10,7 +9,7 @@ type contentProps = {
 
 export default function Content({ children }: contentProps) {
 
-   const [barState, setBarState] = useState(false)
+   const [barState, setBarState] = useState(true)
    const setBar = () => { setBarState(prev => !prev) }
 
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
@@ -30,9 +29,6 @@ export default function Content({ children }: contentProps) {
                </div>
             </section>
          </div>
-         {/* <div id="modals">
-            {showAddEmployeeModal && <AddEmployeeModal />}
-         </div> */}
       </>
    )
 }
