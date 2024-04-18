@@ -16,13 +16,10 @@ export default function Content({ children }: contentProps) {
 
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
    const toggleAddEmployeeModal = () => {setAddEmployeeModal(prev => !prev)}
-
    useEffect(() => {
-      if(!localStorage.getItem('userToken')){
-         redirect.push('/staff/auth/login')
-      }
-   },[redirect])
-   return (
+      !localStorage.getItem('userToken') ? redirect.push('/staff/auth/login') : ''
+   })
+   return (localStorage.getItem('userToken') ? (
       <>
          <div>
             <header className="navbar relative pb-16 z-50">
@@ -41,5 +38,5 @@ export default function Content({ children }: contentProps) {
             {/* {showAddEmployeeModal && <AddEmployeeModal />} */}
          </div>
       </>
-   )
+   ): <></>)
 }

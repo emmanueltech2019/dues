@@ -14,7 +14,7 @@ export default function useLogin(initialState: loginType, url: string, redirect:
       let data;
       axios.post(url, initialState).then(res => {
         data = res.data;
-        localStorage.setItem(`${token}Token`, data.token)
+        localStorage.setItem(token+'Token', data.token)
         login.push(`/${redirect}`)
       }).catch((err) => {
         console.log(err)
