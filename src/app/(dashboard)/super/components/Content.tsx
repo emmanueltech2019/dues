@@ -9,7 +9,7 @@ type contentProps = {
 
 export default function Content({ children }: contentProps) {
 
-   const [barState, setBarState] = useState(true)
+   const [barState, setBarState] = useState(false)
    const setBar = () => { setBarState(prev => !prev) }
 
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
