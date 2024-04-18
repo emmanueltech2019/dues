@@ -21,7 +21,7 @@ export default function Content({ children }: contentProps) {
       if(!localStorage.getItem('userToken')){
          redirect.push('/staff/auth/login')
       }
-   },[])
+   },[redirect])
    return (
       <>
          <div>

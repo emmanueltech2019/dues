@@ -50,7 +50,7 @@ export default function Login() {
                      </div>
                   </div>
                   <div className="pb-[1.5rem] w-full">
-                     <ClickButton x={26} y={10} fontSize={22} handleClick={login(values, loginURL, 'admin')}>Login</ClickButton>
+                     <ClickButton x={26} y={10} fontSize={22} handleClick={login(values, loginURL, 'admin', 'admin')}>Login</ClickButton>
                   </div>
                </form>
             </div>

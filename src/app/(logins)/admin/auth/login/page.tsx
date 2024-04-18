@@ -18,7 +18,7 @@ const classValues = "outline-0 bg-[#fbfbfb] border border-[#e3e3e3] h-[46px] rou
 export default function Login() {
    const { values, handleChange, resetForm } = useForm({ email: '', password: '' })
    const [ state, toggleState ] = useToggle(false)
-   const loginURL = 'https://dues-api.onrender.com/api/v1/user/login';
+   const loginURL = 'https://dues-api.onrender.com/api/v1/admin/login';
    const login = useLogin;
    const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault()
@@ -50,7 +50,7 @@ export default function Login() {
                      </div>
                   </div>
                   <div className="pb-[1.5rem] w-full">
-                     <ClickButton x={26} y={10} fontSize={22} handleClick={login(values, loginURL, 'staff', 'user')}>Login</ClickButton>
+                     <ClickButton x={26} y={10} fontSize={22} handleClick={login(values, loginURL, 'admin', 'admin')}>Login</ClickButton>
                   </div>
                </form>
             </div>
