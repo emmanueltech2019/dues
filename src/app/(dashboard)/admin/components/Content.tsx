@@ -10,7 +10,7 @@ type contentProps = {
 
 export default function Content({ children }: contentProps) {
 
-   const [barState, setBarState] = useState(true)
+   const [barState, setBarState] = useState(false)
    const setBar = () => { setBarState(prev => !prev) }
 
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
@@ -22,7 +22,7 @@ export default function Content({ children }: contentProps) {
                <Navbar barState={barState} setBar={setBar} user='Admin' />
             </header>
             <section className="col">
-               <main className="sidebar relative z-5  0 overflow-hidden">
+               <main className="sidebar relative z-[99]  0 overflow-hidden">
                   <AdminSidebar barState={barState} setBar={setBar} />
                </main>
                <div className={"content w-full transition-all duration-300 " + (barState ? 'lg:pl-[229px]' : 'lg:pl-[59px]')}>
@@ -30,9 +30,9 @@ export default function Content({ children }: contentProps) {
                </div>
             </section>
          </div>
-         <div id="modals">
-            {/* {showAddEmployeeModal && <AddEmployeeModal />} */}
-         </div>
+         {/* <div id="modals">
+            {showAddEmployeeModal && <AddEmployeeModal />}
+         </div> */}
       </>
    )
 }
