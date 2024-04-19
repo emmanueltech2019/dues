@@ -10,6 +10,8 @@ type contentProps = {
 
 export default function Content({ children }: contentProps) {
 
+   const [loggedIn, setLoggedIn] = useState<string>('')
+
    const redirect = useRouter()
    const [barState, setBarState] = useState(true)
    const setBar = () => { setBarState(prev => !prev) }
@@ -17,9 +19,9 @@ export default function Content({ children }: contentProps) {
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
    const toggleAddEmployeeModal = () => {setAddEmployeeModal(prev => !prev)}
    useEffect(() => {
-      !localStorage.getItem('userToken') ? redirect.push('/staff/auth/login') : ''
+      if(localStorage) !localStorage.getItem('userToken') ? redirect.push('/staff/auth/login') : setLoggedIn(localStorage.getItem('userToken') || '')
    })
-   return (localStorage.getItem('userToken') ? (
+   return (loggedIn ? (
       <>
          <div>
             <header className="navbar relative pb-16 z-50">
