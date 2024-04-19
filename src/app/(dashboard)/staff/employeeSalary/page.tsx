@@ -18,7 +18,7 @@ function EmployeeSalary() {
             <div className="entries flex flex-col justify-center p-1">
                 <div className="show-entries flex items-center gap-2 my-3">
                     <p className='text-[#bbc4cc]'>Show</p>
-                    <select name='entries' className='bg-[#16191c] p-2 text-[#bbc4cc]'>
+                    <select name='entries' title='entries' className='bg-[#16191c] p-2 text-[#bbc4cc]'>
                         <option value="10">10</option>
                         <option value="25">25</option>
                         <option value="50">50</option>

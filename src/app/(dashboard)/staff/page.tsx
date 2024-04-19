@@ -7,6 +7,7 @@ import { faHourglass } from '@fortawesome/free-regular-svg-icons'
 import { faBuilding } from '@fortawesome/free-regular-svg-icons'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
+import { wallet } from './components/WalletObj'
 function EmployeeDashboard() {
   return (
     <div id='dashboard' className='p-[30px]'>
@@ -21,7 +22,19 @@ function EmployeeDashboard() {
                 </div>
             </div>
         </header>
-
+        <div className="dash-stats grid md:grid-cols-2 lg:grid-cols-4 gap-7 mt-8">
+            {wallet.map((card, index) => (
+               <div key={card.name + index} className="flex justify-between items-center bg-[#0000009f] p-4 rounded-md">
+                  <div className="flex justify-center items-center bg-[#ff9b446e] rounded-full w-[59px] h-[59px] relative">
+                     {card.icon}
+                  </div>
+                  <div className="stats-value text-[#bbc4cc]">
+                     <h1 className="font-bold text-[23px] text-right">{card.stat}</h1>
+                     <p className="text-[15px]">{card.name}</p>
+                  </div>
+               </div>
+            ))}
+         </div>
         <div className='p-4 flex flex-col smm:flex-row gap-4 justify-between items-start'>
             <div className='flex-[2] w-full'>
                 <div className="today">
