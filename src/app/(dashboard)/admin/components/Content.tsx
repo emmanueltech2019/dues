@@ -22,7 +22,7 @@ export default function Content({ children }: contentProps) {
             </header>
             <section className="col">
                <main className="sidebar relative z-[99]  0 overflow-hidden">
-                  <AdminSidebar barState={barState} setBar={setBar} />
+                  <AdminSidebar barState={barState} setBar={setBar} />  
                </main>
                <div className={"content w-full transition-all duration-300 " + (barState ? 'lg:pl-[229px]' : 'lg:pl-[59px]')}>
                   {children}
