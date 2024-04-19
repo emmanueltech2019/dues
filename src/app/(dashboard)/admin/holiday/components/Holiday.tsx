@@ -17,16 +17,16 @@ function Holiday() {
     setShowMod(!showMod)
   }
 
-  const [holidayData, setHolidayData] = useState({
-    holidayName: '',
-    startDate: '',
-    endDate: '',
-    companyId: ''
-  })
+  // const [holidayData, setHolidayData] = useState({
+  //   holidayName: '',
+  //   startDate: '',
+  //   endDate: '',
+  //   companyId: ''
+  // })
 
-  const handleInput = () => {
-    setHolidayData()
-  }
+  // const handleInput = () => {
+    
+  // }
 
   return (
     <div id='holiday' className='p-4 relative top-0'>
