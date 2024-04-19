@@ -250,72 +250,72 @@ export const companies = [
       userImage: company,
       name: 'Dues',
       skill: 'Tech',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Cway Water',
       skill: 'Brewries',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Shell',
       skill: 'Oil and Gas',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Chevron',
       skill: 'Oil and Gas',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'NNPC',
       skill: 'Oil and Gas',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Timber Market',
       skill: 'Wood and building Materials',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Sobaz',
       skill: 'Fuel station',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'YOU and Me',
       skill: 'super market',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Airtel',
       skill: 'Telecom',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'MTN',
       skill: 'Telecom',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Loius Viton',
       skill: 'Luxury Brand',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   },
   {
       userImage: company,
       name: 'Channels',
       skill: 'Luxury brand',
-      href: './all-employees/profile'
+      href: '/super/company-profile'
   }
 ]
