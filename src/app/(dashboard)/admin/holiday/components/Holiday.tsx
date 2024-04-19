@@ -66,22 +66,22 @@ function Holiday() {
             <div className='absolute top-[43%] left-[17%] md:left-[25%] z-[999] w-[65%] md:w-[500px] shadow-[0px_0px_4000px_1000px_rgba(0,0,0,0.3)] rounded-lg transition-transform'>
               <div className="mod bg-[#34444c] p-3 rounded-lg">
                 <header className='flex justify-between items-center'>
-                  <h1 className='text-[#bbc4cc] text-[18px] md:text-[26px]'>Add Holiday</h1>
+                  <h1 className='text-[#bbc4cc] text-[18px] md:text-[26px] py-3 pb-5'>Add Holiday</h1>
                   <div className='border border-[#ff9b44] rounded-full h-9 px-3 pt-[7px] cursor-pointer' onClick={handleModPopUp}>
                     <button title='btn'><FontAwesomeIcon icon={faXmark} className='text-[#ff9b44]'/></button>
                   </div>
                 </header>
 
                 <div>
-                  <label htmlFor='holiday-name'>Holiday Name</label>
-                  <input id="holiday-name" type="text" className='w-full'/>
+                  <label htmlFor='holiday-name' className='text-[#777777] text-[18px]'>Holiday Name</label>
+                  <input id="holiday-name" type="text" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
                 </div>
                 <div>
-                  <label htmlFor='holiday-date'>Holiday Date</label>
-                  <input id="holiday-date" type="date" className='w-full'/>
+                  <label htmlFor='holiday-date' className='text-[#777777] text-[18px]'>Holiday Date</label>
+                  <input id="holiday-date" type="date" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
                 </div>
                 <div className='text-center'>
-                  <button type='submit' className='text-[#fff] bg-orange'>Submit</button>
+                  <button type='submit' className='text-[#fff] text-[18px] sm-[24px] bg-[#ff9b44] px-3 py-1 rounded-md w-[50%] my-3'>Submit</button>
                 </div>
               </div>
             </div> :  null

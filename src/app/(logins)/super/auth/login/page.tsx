@@ -11,8 +11,6 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 import CustomImage from "@/components/image/CustomImage";
 import ClickButton from "@/components/buttons/ClickButton";
 import useLogin from "@/hooks/useLogin";
-import axiox from 'axios'
-import { useState, useEffect, useRef } from "react";
 
 
 const classValues = "outline-0 bg-[#fbfbfb] border border-[#e3e3e3] h-[46px] rounded shadow-none w-full py-[0.375rem] px-[0.75rem] appearance-none leading-loose"
@@ -20,14 +18,11 @@ const classValues = "outline-0 bg-[#fbfbfb] border border-[#e3e3e3] h-[46px] rou
 export default function Login() {
    const { values, handleChange, resetForm } = useForm({ email: '', password: '' })
    const [ state, toggleState ] = useToggle(false)
-   const loginURL = 'https://dues-api.onrender.com/api/v1/admin/login';
+   const loginURL = 'https://dues-api.onrender.com/api/v1/superadmin/login';
    const login = useLogin;
    const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault()
    }
-
-  const []
-
    return (
       <section className="w-screen min-h-screen flex justify-center items-center bg-[#F7F7F7] flex-wrap relative" id="dashboard">
          <aside className="login px-[15px] w-full max-w-[333.22px] lg:max-w-[510px] relative">
@@ -55,7 +50,7 @@ export default function Login() {
                      </div>
                   </div>
                   <div className="pb-[1.5rem] w-full">
-                     <ClickButton x={26} y={10} fontSize={22} handleClick={login(values, loginURL, 'admin', 'admin')}>Login</ClickButton>
+                     <ClickButton x={26} y={10} fontSize={22} handleClick={login(values, loginURL, 'super', 'super ')}>Login</ClickButton>
                   </div>
                </form>
             </div>
