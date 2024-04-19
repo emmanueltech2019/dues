@@ -43,7 +43,7 @@ function AddEmployeeModal() {
 
     function getUsers() {
         let adminCompany = localStorage.getItem('admincompany')
-        let token = localStorage.getItem('adminToken')
+        let token = localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : ""
         axios({
             url: `https://dues-api.onrender.com/api/v1/admin/staff/${adminCompany}`,
             method: "get",
