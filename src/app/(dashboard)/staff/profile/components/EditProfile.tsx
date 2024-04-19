@@ -70,6 +70,8 @@ export default function EditProfile() {
                 </div>
               </div>
           </div>
+
+          <button type="submit" className='w-[100%] bg-gradient-color text-center text-18px md-[26px] text-[#fff] p-2 rounded-md md:w-[30%] my-6'>Save</button>
         </div>
 
     </div>    

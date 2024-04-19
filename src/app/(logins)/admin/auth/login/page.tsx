@@ -26,8 +26,6 @@ export default function Login() {
       e.preventDefault()
    }
 
-  const []
-
    return (
       <section className="w-screen min-h-screen flex justify-center items-center bg-[#F7F7F7] flex-wrap relative" id="dashboard">
          <aside className="login px-[15px] w-full max-w-[333.22px] lg:max-w-[510px] relative">
