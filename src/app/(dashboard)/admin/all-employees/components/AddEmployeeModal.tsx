@@ -42,16 +42,19 @@ function AddEmployeeModal() {
     }
 
     function getUsers() {
-        axios({
-            url: 'https://dues-api.onrender.com/api/v1/admin/staff/'+(localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""),
-            method: "get",
-            headers:{
-                Authorization: `Bearer ` + (localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : "")
-            }
-        }).then((response: any) => {
-            console.log(response.data)
-        }).catch((error: any) => console.log(error.data))
+        if (typeof window !== 'undefined') {
+            axios({
+                url: 'https://dues-api.onrender.com/api/v1/admin/staff/' + (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""),
+                method: "get",
+                headers: {
+                    Authorization: `Bearer ` + (localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : "")
+                }
+            }).then((response: any) => {
+                console.log(response.data)
+            }).catch((error: any) => console.log(error.data))
+        }
     }
+    
     getUsers()
     return (
         <div className='px-5'>
