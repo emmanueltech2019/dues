@@ -36,23 +36,23 @@ function AddEmployeeModal() {
     function handleSubmit(event: any) {
         event.preventDefault()
         console.log(formData)
-        axios.post('https://dues-api.onrender.com/api/v1/user/register', formData ).then((response: any) => {
-            console.log(response.data)
-        }).catch((error: any) => console.log(error.data))
+        // axios.post('https://dues-api.onrender.com/api/v1/user/register', formData ).then((response: any) => {
+        //     console.log(response.data)
+        // }).catch((error: any) => console.log(error.data))
     }
 
     function getUsers() {
-        let adminCompany = (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : "")
-        let token = (localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : "")
-        axios({
-            url: `https://dues-api.onrender.com/api/v1/admin/staff/${adminCompany}`,
-            method: "get",
-            headers:{
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response: any) => {
-            console.log(response.data)
-        }).catch((error: any) => console.log(error.data))
+        // let adminCompany = (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : "")
+        // let token = (localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : "")
+        // axios({
+        //     url: `https://dues-api.onrender.com/api/v1/admin/staff/${adminCompany}`,
+        //     method: "get",
+        //     headers:{
+        //         Authorization: `Bearer ${token}`
+        //     }
+        // }).then((response: any) => {
+        //     console.log(response.data)
+        // }).catch((error: any) => console.log(error.data))
     }
     getUsers()
     return (
