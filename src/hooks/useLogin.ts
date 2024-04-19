@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { companies } from '../app/(dashboard)/super/components/AdminObj';
 
 type loginType = {
   email: string,
@@ -15,6 +16,7 @@ export default function useLogin(initialState: loginType, url: string, redirect:
       axios.post(url, initialState).then(res => {
         data = res.data;
         localStorage.setItem(token+'Token', data.token)
+        localStorage.setItem(token+'company', data.company)
         login.push(`/${redirect}`)
       }).catch((err) => {
         console.log(err)

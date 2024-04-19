@@ -5,7 +5,7 @@ import Link from "next/link"
 import GridViewIcon from '@mui/icons-material/GridView';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import ViewListIcon from '@mui/icons-material/ViewList';
-
+import EventNoteIcon from '@mui/icons-material/EventNote';
 
 const links = [
    {
@@ -22,6 +22,11 @@ const links = [
       title: 'Payments',
       path: '/admin/payment',
       icon: <ViewListIcon className="text-inherit" />
+   },
+   {
+      title: 'Holidays',
+      path: '/admin/holiday',
+      icon: <EventNoteIcon className="text-inherit" />
    }
 ]
 

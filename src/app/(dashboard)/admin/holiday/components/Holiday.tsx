@@ -11,10 +11,21 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark'
 
 function Holiday() {
 
-  const [showMod, setShowMod] = useState(true)
+  const [showMod, setShowMod] = useState(false)
 
   function handleModPopUp() {
     setShowMod(!showMod)
+  }
+
+  const [holidayData, setHolidayData] = useState({
+    holidayName: '',
+    startDate: '',
+    endDate: '',
+    companyId: ''
+  })
+
+  const handleInput = () => {
+    setHolidayData()
   }
 
   return (
@@ -63,7 +74,7 @@ function Holiday() {
           </div>
 
           {showMod ?
-            <div className='absolute top-[43%] left-[17%] md:left-[25%] z-[999] w-[65%] md:w-[500px] shadow-[0px_0px_4000px_1000px_rgba(0,0,0,0.3)] rounded-lg transition-transform'>
+            <div className='absolute top-[9%] left-[17%] md:left-[25%] z-[999] w-[65%] md:w-[500px] shadow-[0px_0px_4000px_1000px_rgba(0,0,0,0.3)] rounded-lg transition-transform'>
               <div className="mod bg-[#34444c] p-3 rounded-lg">
                 <header className='flex justify-between items-center'>
                   <h1 className='text-[#bbc4cc] text-[18px] md:text-[26px] py-3 pb-5'>Add Holiday</h1>
@@ -74,11 +85,19 @@ function Holiday() {
 
                 <div>
                   <label htmlFor='holiday-name' className='text-[#777777] text-[18px]'>Holiday Name</label>
-                  <input id="holiday-name" type="text" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
+                  <input id="holiday-name" type="text" name="holidayName" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
                 </div>
                 <div>
-                  <label htmlFor='holiday-date' className='text-[#777777] text-[18px]'>Holiday Date</label>
-                  <input id="holiday-date" type="date" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
+                  <label htmlFor='start-date' className='text-[#777777] text-[18px]'>Start Date</label>
+                  <input id="start-date" type="date" name="startDate" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
+                </div>
+                <div>
+                  <label htmlFor='end-date' className='text-[#777777] text-[18px]'>End Date</label>
+                  <input id="end-date" type="date" name="endDate" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
+                </div>
+                <div>
+                  <label htmlFor='company-id' className='text-[#777777] text-[18px]'>Company ID</label>
+                  <input id="company-id" type="text" name="companyId" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3'/>
                 </div>
                 <div className='text-center'>
                   <button type='submit' className='text-[#fff] text-[18px] sm-[24px] bg-[#ff9b44] px-3 py-1 rounded-md w-[50%] my-3'>Submit</button>

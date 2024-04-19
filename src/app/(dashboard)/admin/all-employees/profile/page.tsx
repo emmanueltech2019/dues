@@ -31,9 +31,9 @@ function page() {
                             <p className='text-[#8e8c8a] text-[.7rem]'>Date of John : 1st Jan 2013</p>
                         </div>
 
-                        <div className="button py-1 pt-3 smm:text-left">
+                        {/* <div className="button py-1 pt-3 smm:text-left">
                             <button className=' bg-gradient-color text-white p-2 px-4 rounded-md text-[.84rem]'>Send Message</button>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="details py-4 flex flex-col gap-2 lg:w-[40%]">
                         <div className="phone flex justify-start gap-8">
@@ -57,13 +57,6 @@ function page() {
                         <div className="gender flex justify-start gap-8">
                             <h1 className='text-[#bbc4cc] flex-1'>Gender:</h1>
                             <p className='text-[#828c8a] flex-[2]'>Male</p>
-                        </div>
-                        <div className="report flex justify-start gap-8">
-                            <h1 className='text-[#bbc4cc] flex-1'>Reports to:</h1>
-                            <div className='flex gap-2 items-center flex-[2]'>
-                                <Image src={user} alt="alt" className='w-6 rounded-full' />
-                                <Link href={'/'} className='text-white underline'>Jeffery Lalor</Link>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -319,3 +319,66 @@ export const companies = [
       href: '/super/company-profile'
   }
 ]
+
+export const companyStaffs = [
+    {
+      name: 'John Doe',
+      skill: 'Web Designer',
+      email: 'johndoe@gmail.com'
+  },
+  {
+      name: 'Richard Miles',
+      skill: 'Web Developer',
+      email: 'richardmiles@gmail.com'
+  },
+  {
+      name: 'John Smith',
+      skill: 'Android Developer',
+      email: 'johnsmith@gmail.com'
+  },
+  {
+      name: 'Mike Litorus',
+      skill: 'IOS Developer',
+      email: 'mikelitorus@gmail.com'
+  },
+  {
+      name: 'Wilmer Deluna',
+      skill: 'Team Leader',
+      email: 'wilmerdeluna@gmail.com'
+  },
+  {
+      name: 'Jeffery Warden',
+      skill: 'Web Developer',
+      email: 'jefferywarden@gmail.com'
+  },
+  {
+      name: 'Bernardo Galaviz',
+      skill: 'Web Developer',
+      email: 'bernadogalviz@gmail.com'
+  },
+  {
+      name: 'Lesley Grauer',
+      skill: 'Team Leader',
+      email: 'lesleygrauer@gmail.com'
+  },
+  {
+      name: 'Jeffery Lalor',
+      skill: 'Team Leader',
+      email: 'jefferylalor@gmail.com'
+  },
+  {
+      name: 'Loren Gatin',
+      skill: 'Android Developer',
+      email: 'lorengatin@gmail.com'
+  },
+  {
+      name: 'Tarah Shropshire',
+      skill: 'Android Deveoper',
+      email: 'tarahshropshire@gmail.com'
+  },
+  {
+      name: 'Catherine Manseau',
+      skill: 'Android Developer',
+      email: 'catherinemanseau@gmail.com'
+  }
+]

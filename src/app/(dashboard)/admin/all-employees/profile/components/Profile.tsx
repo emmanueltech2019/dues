@@ -12,18 +12,18 @@ function Profile() {
                         <h1 className='text-[1.4rem]'>Personal Informations</h1>
                     </header>
                     <div className="informations flex flex-col gap-2 text-[.83rem]">
-                        <div className="passport-no flex justify-start gap-9">
+                        {/* <div className="passport-no flex justify-start gap-9">
                             <h1 className='flex-1'>Passport No.</h1>
                             <p className='flex-[2] text-[#8e8c8a]'>9876543210</p>
                         </div>
                         <div className="passport-exp flex justify-start gap-9">
                             <h1 className='flex-1'>Passport Exp Date.</h1>
                             <p className='flex-[2] text-[#8e8c8a]'>9876543210</p>
-                        </div>
-                        <div className="date flex justify-start gap-9">
+                        </div> */}
+                        {/* <div className="date flex justify-start gap-9">
                             <h1 className='flex-1'>Date</h1>
                             <p className='flex-[2] text-[#8e8c8a]'></p>
-                        </div>
+                        </div> */}
                         <div className="tel flex justify-start gap-9">
                             <h1 className='flex-1'>Tel</h1>
                             <p className='flex-[2] text-[#1628c3]'>9876543210</p>
@@ -40,10 +40,10 @@ function Profile() {
                             <h1 className='flex-1'>Marital Status</h1>
                             <p className='flex-[2] text-[#8e8c8a]'>Married</p>
                         </div>
-                        <div className="employment flex justify-start gap-9">
+                        {/* <div className="employment flex justify-start gap-9">
                             <h1 className='flex-1'>Employment of spouse</h1>
                             <p className='flex-[2] text-[#8e8c8a]'>No</p>
-                        </div>
+                        </div> */}
                         <div className="no-of-children flex justify-start gap-9">
                             <h1 className='flex-1'>No. of children</h1>
                             <p className='flex-[2] text-[#8e8c8a]'>2</p>
@@ -51,7 +51,7 @@ function Profile() {
                     </div>
                </div>
 
-               <div className="emergency-contact p-4 rounded-lg bg-[#16191c] text-[.83rem]">
+               {/* <div className="emergency-contact p-4 rounded-lg bg-[#16191c] text-[.83rem]">
                     <header className='py-3'>
                         <h1 className='text-[1.3rem]'>Emergency Contact</h1>
                     </header>
@@ -92,7 +92,7 @@ function Profile() {
                             </div>
                         </div>
                     </div>
-               </div>
+               </div> */}
 
                <div className="bank-information p-4 rounded-lg bg-[#16191c] text-[.83rem]">
                     <header className='py-3'>
@@ -118,7 +118,7 @@ function Profile() {
                     </div>
                </div>
 
-               <div className="family-informations p-4 rounded-lg bg-[#16191c] overflow-hidden text-[.83rem]">
+               {/* <div className="family-informations p-4 rounded-lg bg-[#16191c] overflow-hidden text-[.83rem]">
                     <div>
                         <h1 className='text-[1.3rem] mb-3'>Family Information</h1>
                     </div>
@@ -144,7 +144,7 @@ function Profile() {
                             </tbody>
                         </table>
                     </div>
-               </div>
+               </div> */}
 
                <div className="educations-info bg-[#16191c] p-4 rounded-md text-[.83rem]">
                     <header>
