@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark'
 // import React from 'react'
@@ -13,20 +13,25 @@ import Link from 'next/link'
 import { employees } from '../components/page-objects';
 import Image from 'next/image'
 import axios from 'axios'
+import userImg from '../img/user.jpg'
+import Swal from 'sweetalert2'
+// import 'sweetalert2/src/sweetalert2.scss'
 
 function AddEmployeeModal() {
     const [showMod, setShowMod] = useState(false)
+    const [staffs, setStaffs] = useState([])
 
     function handleModPopUp() {
         setShowMod(!showMod)
     }
 
     // const url = 'https://dues-api.onrender.com/api/v1/user/register'
-    const axios = require('axios')
+    // const axios = require('axios')
     const [formData, setFormData] = useState({
         fullname: '',
         email: '',
-        password: ''
+        password: '',
+        company: (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : "")
     })
 
     const handleInput = (event: any) => {
@@ -36,26 +41,57 @@ function AddEmployeeModal() {
     function handleSubmit(event: any) {
         event.preventDefault()
         console.log(formData)
-        axios.post('https://dues-api.onrender.com/api/v1/user/register', formData ).then((response: any) => {
-            console.log(response.data)
-        }).catch((error: any) => console.log(error.data))
-    }
 
-    function getUsers() {
-        if (typeof window !== 'undefined') {
-            axios({
-                url: 'https://dues-api.onrender.com/api/v1/admin/staff/' + (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""),
-                method: "get",
-                headers: {
-                    Authorization: `Bearer ` + (localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : "")
-                }
-            }).then((response: any) => {
-                console.log(response.data)
+        if(localStorage.getItem('admincompany') === null) {
+            Swal.fire({
+                title: 'Sorry!',
+                text: 'Please login',
+                icon: 'warning',
+                timer: 5000
+              })
+             
+            // alert("Please select a company first")
+        } else {
+            axios.post('https://dues-api.onrender.com/api/v1/user/register', formData ).then((response: any) => {
+            console.log(response.data)
+            Swal.fire({
+                title: 'Hurray!',
+                text: 'staff added successfully',
+                icon: 'success',
+                confirmButtonText: 'Done',
+                timer: 5000
+              }).then(()=>{
+                window.location.reload()
+              })
             }).catch((error: any) => console.log(error.data))
         }
     }
-    
-    getUsers()
+
+    useEffect(() => {
+        const getUsers = () => {
+            if (typeof window !== 'undefined') {
+                axios({
+                    url: 'https://dues-api.onrender.com/api/v1/admin/staff/' + (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""),
+                    method: "get",
+                    headers: {
+                        Authorization: `Bearer ` + (localStorage.getItem('adminToken') !== null ? localStorage.getItem('adminToken') : "")
+                    }
+                }).then((response: any) => {
+                    console.log(response.data);
+                    
+                    setStaffs(response.data.staffMembers);
+                }).catch((error: any) => console.log(error.data));
+            }
+        };
+
+        getUsers(); // Call getUsers() when component mounts
+
+        // Cleanup function
+        return () => {
+            // Optionally, perform cleanup or cancel any ongoing tasks here
+        };
+    }, []); // Empty dependency array ensures the effect runs only once (on mount)
+
     return (
         <div className='px-5'>
             <header className="flex justify-between items-center w-full py-3">
@@ -94,15 +130,15 @@ function AddEmployeeModal() {
 
             <div className="employee grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-5 py-5">
                 {
-                    employees.map(({ name, skill, userImage, href }, index) => (
-                        <div key={name + index} className='bg-[#16191c] py-2 px-3'>
+                    staffs.map(({ fullname, email  }, index) => (
+                        <div key={fullname + index} className='bg-[#16191c] py-2 px-3'>
                             <div className='flex justify-end'>
                                 <FontAwesomeIcon icon={faEllipsisV} className="h-5 text-[#777777] cursor-pointer" />
                             </div>
-                            <Link href={href} className='text-center flex flex-col justify-center items-center'>
-                                <Image src={userImage} alt="alt" className='w-[80px] rounded-full mt-3' />
-                                <div className="name text-lg text-white">{name}</div>
-                                <div className="skill text-sm text-[#8e8c8a]">{skill}</div>
+                            <Link href={'/'} className='text-center flex flex-col justify-center items-center'>
+                                <Image src={userImg} alt="alt" className='w-[80px] rounded-full mt-3' />
+                                <div className="name text-lg text-white">{fullname}</div>
+                                <div className="skill text-sm text-[#8e8c8a]">{email}</div>
                             </Link>
                         </div>
                     ))
