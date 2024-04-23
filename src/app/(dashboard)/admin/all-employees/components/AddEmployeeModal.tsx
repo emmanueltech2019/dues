@@ -15,6 +15,7 @@ import Image from 'next/image'
 import axios from 'axios'
 import userImg from '../img/user.jpg'
 import Swal from 'sweetalert2'
+import { redirect } from 'next/navigation'
 // import 'sweetalert2/src/sweetalert2.scss'
 
 function AddEmployeeModal() {
@@ -48,8 +49,11 @@ function AddEmployeeModal() {
                 text: 'Please login',
                 icon: 'warning',
                 timer: 5000
-              })
-             
+            }).then(() => {
+                setTimeout(() => {
+                    window.location.href = "auth/login";
+                }, 3000); // Redirect after 5 seconds
+            });
             // alert("Please select a company first")
         } else {
             axios.post('https://dues-api.onrender.com/api/v1/user/register', formData ).then((response: any) => {
