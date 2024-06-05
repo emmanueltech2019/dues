@@ -111,43 +111,46 @@ function Holiday() {
       setHolidayData({
         holidayName: data.holidayName,
         endDate: data.endDate,
-        startDate: data.startDate
-      })
+        startDate: data.startDate,
+        company: localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""
+      });
     }).catch((error: any) => {
       console.log(error.data)
     })
   }
 
-  const handleEdit = (e:React.FormEvent, id: any) => {
-    e.preventDefault()
-    axios({
-      url: `https://dues-api.onrender.com/api/v1/admin/holiday-records/${currentModData}`,
-      method: "put",
-      data: holidayData,
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('adminToken') || ""}`
-      }
-    }).then((response) => {
-    console.log(response.data)
+  const handleEdit: React.FormEventHandler<HTMLFormElement> = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  axios({
+    url: `https://dues-api.onrender.com/api/v1/admin/holiday-records/${currentModData}`,
+    method: "put",
+    data: holidayData,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('adminToken') || ""}`
+    }
+  })
+  .then((response) => {
+    console.log(response.data);
     setHolidays(holidays.map(holiday => holiday._id === currentModData ? { ...holiday, ...holidayData } : holiday));
     Swal.fire({
       title: 'Success!',
-      text: 'Holiday deleted successfully',
+      text: 'Holiday updated successfully',
       icon: 'success',
       confirmButtonText: 'OK',
       timer: 5000
     });
-    setEditMod(false) //close modal after update has been made
-    }).catch((error: any) => {
-      console.log(error.response.data);
-      Swal.fire({
-        title: 'Error!',
-        text: 'Failed to delete holiday',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
+    setEditMod(false); // close modal after update has been made
+  })
+  .catch((error: any) => {
+    console.log(error.response.data);
+    Swal.fire({
+      title: 'Error!',
+      text: 'Failed to update holiday',
+      icon: 'error',
+      confirmButtonText: 'OK'
     });
-}
+  });
+};
 
   const deleteHoliday = (id: any) => {
     axios({
@@ -235,15 +238,15 @@ function Holiday() {
             <form onSubmit={handleSubmit}>
               <div>
                 <label htmlFor='holiday-name' className='text-[#777777] text-[18px]'>Holiday Name</label>
-                <input id="holiday-name" type="text" name="holidayName" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3' onChange={handleInput} />
+                <input id="holiday-name" type="text" name="holidayName" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md' onChange={handleInput} />
               </div>
               <div>
                 <label htmlFor='start-date' className='text-[#777777] text-[18px]'>Start Date</label>
-                <input id="start-date" type="date" name="startDate" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3' onChange={handleInput} />
+                <input id="start-date" type="date" name="startDate" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md' onChange={handleInput} />
               </div>
               <div>
                 <label htmlFor='end-date' className='text-[#777777] text-[18px]'>End Date</label>
-                <input id="end-date" type="date" name="endDate" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3' onChange={handleInput} />
+                <input id="end-date" type="date" name="endDate" className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md' onChange={handleInput} />
               </div>
               <div className='text-center'>
                 <button onClick={handleInput} type='submit' className='text-[#fff] text-[18px] sm-[24px] bg-[#ff9b44] px-3 py-1 rounded-md w-[50%] my-3'>Submit</button>
@@ -267,15 +270,15 @@ function Holiday() {
               <form onSubmit={handleEdit}>
                 <div>
                   <label htmlFor='holiday-name' className='text-[#777777] text-[18px]'>Holiday Name</label>
-                  <input id="holiday-name" type="text" name="holidayName" value={holidayData.holidayName} className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3' onChange={handleInput} />
+                  <input id="holiday-name" type="text" name="holidayName" value={holidayData.holidayName} className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md' onChange={handleInput} />
                 </div>
                 <div>
                   <label htmlFor='start-date' className='text-[#777777] text-[18px]'>Start Date</label>
-                  <input id="start-date" type="date" name="startDate" value={holidayData.startDate.split("T")[0]} className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3' onChange={handleInput} />
+                  <input id="start-date" type="date" name="startDate" value={holidayData.startDate.split("T")[0]} className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md' onChange={handleInput} />
                 </div>
                 <div>
                   <label htmlFor='end-date' className='text-[#777777] text-[18px]'>End Date</label>
-                  <input id="end-date" type="date" name="endDate" value={holidayData.endDate.split("T")[0]} className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md p-3' onChange={handleInput} />
+                  <input id="end-date" type="date" name="endDate" value={holidayData.endDate.split("T")[0]} className='w-full p-2 bg-[#16191c] my-3 text-[#bbc4cc] rounded-md' onChange={handleInput} />
                 </div>
                 <div className='text-center'>
                   <button onClick={handleInput} type='submit' className='text-[#fff] text-[18px] sm-[24px] bg-[#ff9b44] px-3 py-1 rounded-md w-[50%] my-3'>Submit</button>
