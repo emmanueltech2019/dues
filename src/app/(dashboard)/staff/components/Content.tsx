@@ -19,8 +19,11 @@ export default function Content({ children }: contentProps) {
    const [showAddEmployeeModal, setAddEmployeeModal] = useState(true)
    const toggleAddEmployeeModal = () => {setAddEmployeeModal(prev => !prev)}
    useEffect(() => {
-      if(localStorage) !localStorage.getItem('userToken') ? redirect.push('/staff/auth/login') : setLoggedIn(localStorage.getItem('userToken') || '')
-   })
+      if (localStorage) {
+        !localStorage.getItem('userToken') && redirect.push('/staff/auth/login');
+        setLoggedIn(localStorage.getItem('userToken') || '');
+      }
+    }, [redirect]);
    return (loggedIn ? (
       <>
          <div>
