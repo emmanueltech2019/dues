@@ -24,11 +24,14 @@ function Holiday() {
     setEditMod(!editMod)
   }
 
+  const company = typeof window !== 'undefined' ? localStorage.getItem('admincompany') : null;
+  const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
+
   const [holidayData, setHolidayData] = useState({
     holidayName: '',
     startDate: '',
     endDate: '',
-    company: (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : "")
+    company: company !== null ? company : ""
   })
   
   const handleInput = (event: any) => {
@@ -112,7 +115,7 @@ function Holiday() {
         holidayName: data.holidayName,
         endDate: data.endDate,
         startDate: data.startDate,
-        company: localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""
+        company: company !== null ? company : ""
       });
     }).catch((error: any) => {
       console.log(error.data)

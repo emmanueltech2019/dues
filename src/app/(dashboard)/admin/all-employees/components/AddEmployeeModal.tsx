@@ -33,11 +33,13 @@ function AddEmployeeModal() {
 
     // const url = 'https://dues-api.onrender.com/api/v1/user/register'
     // const axios = require('axios')
+    const company = typeof window !== 'undefined' ? localStorage.getItem('admincompany') : null;
+    const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
     const [formData, setFormData] = useState({
         fullname: '',
         email: '',
         password: '',
-        company: (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""),
+        company: company !== null ? company : "",
         designation: '',
         employeeID: ''
     })
