@@ -20,7 +20,12 @@ import { redirect } from 'next/navigation'
 
 function AddEmployeeModal() {
     const [showMod, setShowMod] = useState(false)
-    const [staffs, setStaffs] = useState([])
+    const [staffs, setStaffs] = useState<any[]>([])
+    const [filters, setFilters] = useState({
+        searchQuery: '',
+        selectedDesignation: '',
+        idSearchQuery: ''
+    });
 
     function handleModPopUp() {
         setShowMod(!showMod)
@@ -32,7 +37,9 @@ function AddEmployeeModal() {
         fullname: '',
         email: '',
         password: '',
-        company: (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : "")
+        company: (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : ""),
+        designation: '',
+        employeeID: ''
     })
 
     const handleInput = (event: any) => {
@@ -43,7 +50,7 @@ function AddEmployeeModal() {
         event.preventDefault()
         console.log(formData)
 
-        if(localStorage.getItem('admincompany') === null) {
+        if (localStorage.getItem('admincompany') === null) {
             Swal.fire({
                 title: 'Sorry!',
                 text: 'Please login',
@@ -56,17 +63,17 @@ function AddEmployeeModal() {
             });
             // alert("Please select a company first")
         } else {
-            axios.post('https://dues-api.onrender.com/api/v1/user/register', formData ).then((response: any) => {
-            console.log(response.data)
-            Swal.fire({
-                title: 'Hurray!',
-                text: 'staff added successfully',
-                icon: 'success',
-                confirmButtonText: 'Done',
-                timer: 5000
-              }).then(()=>{
-                window.location.reload()
-              })
+            axios.post('https://dues-api.onrender.com/api/v1/user/register', formData).then((response: any) => {
+                console.log(response.data)
+                Swal.fire({
+                    title: 'Hurray!',
+                    text: 'staff added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done',
+                    timer: 5000
+                }).then(() => {
+                    window.location.reload()
+                })
             }).catch((error: any) => console.log(error.data))
         }
     }
@@ -82,7 +89,7 @@ function AddEmployeeModal() {
                     }
                 }).then((response: any) => {
                     console.log(response.data);
-                    
+
                     setStaffs(response.data.staffMembers);
                 }).catch((error: any) => console.log(error.data));
             }
@@ -95,6 +102,52 @@ function AddEmployeeModal() {
             // Optionally, perform cleanup or cancel any ongoing tasks here
         };
     }, []); // Empty dependency array ensures the effect runs only once (on mount)
+
+
+
+    const filteredStaffs = staffs.filter(staff =>
+        (!filters.searchQuery || staff.fullname.toLowerCase().includes(filters.searchQuery.toLowerCase())) &&
+        (!filters.idSearchQuery || staff.employeeID.toLowerCase().includes(filters.idSearchQuery.toLowerCase())) &&
+        (filters.selectedDesignation === '' || staff.designation === filters.selectedDesignation)
+    );
+
+    const handleInputChange = (event: any) => {
+        const searchQuery = event.target.value;
+        setFilters({ ...filters, searchQuery });
+    };
+
+    const idHandleInputChange = (event: any) => {
+        const idSearchQuery = event.target.value;
+        setFilters({ ...filters, idSearchQuery });
+    };
+
+    const handleSelectChange = (event: any) => {
+        const selectedDesignation = event.target.value;
+        setFilters({ ...filters, selectedDesignation });
+    };
+
+
+    const handleSearch = (event: any) => {
+        event.preventDefault();
+        // Send formData to the server to add the employee
+        axios.post('https://dues-api.onrender.com/api/v1/user/register', formData)
+            .then((response) => {
+                console.log(response.data);
+                // Assuming the response contains the added employee data, update the staffs state with the new data
+                setStaffs([...staffs, response.data]);
+                // Clear the form fields after successful submission
+                // setFormData({
+                //     fullname: '',
+                //     email: '',
+                //     password: '',
+                //     designation: ''
+                // });
+                // Close the modal after submission
+                setShowMod(false);
+            })
+            .catch((error) => console.log(error.data));
+    };
+
 
     return (
         <div className='px-5'>
@@ -110,17 +163,17 @@ function AddEmployeeModal() {
                 </nav>
             </header>
 
-            <div className='grid vsm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-4 gap-y-3 overflowx-hidden py-3'>
+            <form className='grid vsm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-4 gap-y-3 overflowx-hidden py-3'>
                 <div className="employee-id bg-[#16191c] p-3 rounded w-full ">
-                    <input type="text" placeholder="Employee ID" className=' bg-transparent w-full ' />
+                    <input type="text" value={filters.searchQuery} onChange={handleInputChange} placeholder="Employee ID" className=' bg-transparent w-full text-[#bbc4cc]' />
                 </div>
                 <div className="employee-name bg-[#16191c] p-3 rounded">
-                    <input type="text" placeholder="Employee Name" className=' bg-transparent w-full ' />
+                    <input type="text" value={filters.idSearchQuery} onChange={idHandleInputChange} placeholder="Employee Name" className=' bg-transparent w-full text-[#bbc4cc]' />
                 </div>
                 <div className="designation bg-[#16191c] p-3 rounded text-[#bbc4cc]">
-                    <select name="designation" title='Select Designation' className=' w-full outline-none rounded-none bg-[#16191c]'>
+                    <select name="designation" title='Select Designation' className=' w-full outline-none rounded-none bg-[#16191c]' onChange={handleSelectChange}>
                         {/* <p className='text-white'>Designation</p> */}
-                        <option>Select Designation</option>
+                        <option value="All designations" selected></option>
                         <option value="web developer">Web Developer</option>
                         <option value="web designer">Web Designer</option>
                         <option value="andriod developer">Andriod Developer</option>
@@ -128,13 +181,13 @@ function AddEmployeeModal() {
                     </select>
                 </div>
                 <div className="search p-3 rounded bg-[#55ce63] text-center text-white text-[1rem] cursor-pointer">
-                    <button>SEARCH</button>
+                    <button onClick={handleSearch}>SEARCH</button>
                 </div>
-            </div>
+            </form>
 
             <div className="employee grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-5 py-5">
                 {
-                    staffs.map(({ fullname, email  }, index) => (
+                    filteredStaffs.map(({ fullname, email }, index) => (
                         <div key={fullname + index} className='bg-[#16191c] py-2 px-3'>
                             <div className='flex justify-end'>
                                 <FontAwesomeIcon icon={faEllipsisV} className="h-5 text-[#777777] cursor-pointer" />

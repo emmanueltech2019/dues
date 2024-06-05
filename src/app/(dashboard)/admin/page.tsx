@@ -55,7 +55,7 @@ export default function AdminDashboard() {
             }
          </div>
 
-         <div className="grid gap-3 md:grid-cols-3">
+         <div className="grid gap-3 md:grid-cols-2">
             <div className="statistics bg-[#0000009f] rounded-md p-4 pb-6">
                <h1 className="text-[#bbc4cc] font-semibold text-lg">Statistics</h1>
 
@@ -79,7 +79,7 @@ export default function AdminDashboard() {
                </ul>
             </div>
 
-            <div className="taskStatistics bg-[#0000009f] rounded-md p-4 pb-6">
+            {/* <div className="taskStatistics bg-[#0000009f] rounded-md p-4 pb-6">
                <h1 className="text-[#bbc4cc] font-semibold text-lg">Task Statistics</h1>
                <div className="flex justify-between items-center mt-6 gap-8">
                   <div className="total text-center  font-semibold border border-[#2e3840] text-[#bbc4cc] p-2 w-full">
@@ -148,7 +148,7 @@ export default function AdminDashboard() {
                   </li>
                </ul>
 
-            </div>
+            </div> */}
             <div className="todayAbsent bg-[#0000009f] rounded-md p-4">
                <div className="flex items-center gap-2">
                   <h1 className="text-[#bbc4cc] text-semibold text-lg">Today Absent</h1>
@@ -183,8 +183,8 @@ export default function AdminDashboard() {
             </div>
          </div>
 
-         <div className="grid gap-3 md:grid-cols-2 mt-8">
-            <div className="table1 bg-[#34444c] rounded-md overflow-hidden">
+         <div className="grid gap-3 md:grid-cols-1 mt-8">
+            {/* <div className="table1 bg-[#34444c] rounded-md overflow-hidden">
                <div className="bg-[#16191c] rounded-t-md p-4">
                   <p className="text-[#bbc4cc] text-[22px] font-semibold">Invoices</p>
                </div>
@@ -215,14 +215,14 @@ export default function AdminDashboard() {
                <div className="text-center bg-[#16191c] rounded-b-md p-4">
                   <button className="text-[#bbc4cc] text-[15px] font-semibold">View all invoices</button>
                </div>
-            </div>
+            </div> */}
 
             <div className="table2 bg-[#34444c] rounded-md overflow-hidden">
                <div className="bg-[#16191c] rounded-t-md p-4">
-                  <p className="text-[#bbc4cc] text-[22px] font-semibold">Payments</p>
+                  <p className="text-[#bbc4cc] text-[22px] font-semibold">Logs</p>
                </div>
                <div className="overflow-x-scroll whitespace-nowrap">
-                  <table>
+                  <table className="w-full">
                      <thead>
                         <tr className="text-[#BBC4CC] text-[15px] font-semibold text-left">
                            <th className="py-2 px-4 border border-[#2e3840]">Invoice ID</th>
@@ -247,73 +247,6 @@ export default function AdminDashboard() {
                </div>
                <div className="text-center bg-[#16191c] rounded-b-md p-4">
                   <button className="text-[#bbc4cc] text-[15px] font-semibold">View all payments</button>
-               </div>
-            </div>
-
-            <div className="table3 bg-[#34444c] rounded-md overflow-hidden">
-               <div className="bg-[#16191c] rounded-t-md p-4">
-                  <p className="text-[#bbc4cc] text-[22px] font-semibold">Clients</p>
-               </div>
-               <div className="overflow-x-scroll whitespace-nowrap">
-                  <table>
-                     <thead>
-                        <tr className="text-[#BBC4CC] text-[15px] font-semibold text-left">
-                           <th className="py-2 px-4 border border-[#2e3840]">Name</th>
-                           <th className="py-2 px-4 border border-[#2e3840]">Email</th>
-                           <th className="py-2 px-4 border border-[#2e3840]">Status</th>
-                           <th className="py-2 px-4 border border-[#2e3840]">Action</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        {clients.map(({ img, name, email, status, action }, index) => (
-                           <tr key={name + index}>
-                              <td className="px-5 pe-14 py-3 border border-[#2e3840] text-[#8e8e8e]"><Link href="/" className="flex items-center gap-3"><Image src={img} alt="alt" className="h-10 w-10 rounded-full" />{name}</Link></td>
-                              <td className="px-5 py-3 border border-[#2e3840] text-[#fff] text-sm font-semibold"><Link href="/">{email}</Link></td>
-                              <td className="px-3 py-3 border border-[#2e3840]">{status}</td>
-                              <td className="px-9 border border-[#2e3840] text-[#fff] text-center"><button onClick={() => {console.log('clicked')}}>{action}</button></td>
-                           </tr>
-                        ))}
-                     </tbody>
-                  </table>
-               </div>
-               <div className="text-center bg-[#16191c] rounded-b-md p-4">
-                  <button className="text-[#bbc4cc] text-[15px] font-semibold">View all clients</button>
-               </div>
-            </div>
-
-            <div className="table4 bg-[#34444c] rounded-md overflow-hidden">
-               <div className="bg-[#16191c] rounded-t-md p-4">
-                  <p className="text-[#bbc4cc] text-[22px] font-semibold">Recent Projects</p>
-               </div>
-               <div className="overflow-x-scroll whitespace-nowrap">
-                  <table>
-                     <thead>
-                        <tr className="text-[#BBC4CC] text-[15px] font-semibold text-left">
-                           <th className="py-2 px-4 border border-[#2e3840]">Project Name</th>
-                           <th className="py-2 px-4 border border-[#2e3840]">Progress</th>
-                           <th className="py-2 px-4 border border-[#2e3840]">Action</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        {recentProjects.map(({ projectName, openTasks, completed, progress, action }, index) => (
-                           <tr key={projectName + index}>
-                              <td className="px-3 py-3 border border-[#2e3840] text-[#8e8e8e]"><Link href="/" className="text-sm">
-                                 <p>{projectName}</p>
-                                 <p className="text-[12px] font-semibold">{openTasks} open tasks, {completed} tasks completed</p>
-                              </Link></td>
-                              <td className="px-3 py-3 border border-[#2e3840]">
-                                 <div className="w-full h-1 bg-[#fff] rounded">
-                                    <div className="bar h-1 rounded bg-[#25628f]" style={{ width: `${progress}%` }}></div>
-                                 </div>
-                              </td>
-                              <td className="px-9 border border-[#2e3840] text-[#fff] text-center">{action}</td>
-                           </tr>
-                        ))}
-                     </tbody>
-                  </table>
-               </div>
-               <div className="text-center bg-[#16191c] rounded-b-md p-4">
-                  <button className="text-[#bbc4cc] text-[15px] font-semibold">View all projects</button>
                </div>
             </div>
          </div>

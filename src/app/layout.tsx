@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@/vendor/FontAwesome";
 import { circularStd } from "@/fonts/fonts";
-
-
+import NavBar from "@/components/HeroNav/NavBar";
+import Footer from "@/components/HeroFoot/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",

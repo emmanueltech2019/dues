@@ -14,7 +14,7 @@ function Holiday() {
 
   const [showMod, setShowMod] = useState(false)
   const [editMod, setEditMod] = useState(false)
-  const [holidays, setHolidays] = useState([])
+  const [holidays, setHolidays] = useState<any[]>([])
   const [currentModData, setCurrentModData] = useState("")
   function handleModPopUp() {
     setShowMod(!showMod)
@@ -79,7 +79,7 @@ function Holiday() {
     const getHolidays = () => {
       let data = { company: (localStorage.getItem('admincompany') !== null ? localStorage.getItem('admincompany') : "") }
       axios({
-        url: (`https://dues-api.onrender.com/api/v1/admin/holiday-record/${currentModData}`),
+        url: (`https://dues-api.onrender.com/api/v1/admin/holiday-record`),
         method: 'post',
         data,
         headers: {
